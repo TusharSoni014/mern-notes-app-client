@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { handleError } from "../utils/handleError";
-import axiosClient from "../utils/axiosClient";
 import { useDispatch } from "react-redux";
-import { updateLoginStatus, updateUser } from "../redux/slices/appSlice";
 import { useNavigate } from "react-router-dom";
+import axiosClient from "../utils/axiosClient";
+import { updateLoginStatus, updateUser } from "../redux/slices/appSlice";
+import { handleError } from "../utils/handleError";
 
 export default function Signup() {
   const [username, setUsername] = useState("");

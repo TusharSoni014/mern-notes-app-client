@@ -1,10 +1,8 @@
-import {
-  configureStore,
-  combineReducers,
-} from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import appSlice from "./slices/appSlice";
+import notesSlice from "./slices/notesSlice";
 
 const persistConfig = {
   key: "appSlice", // key is a unique identifier for the persisted data
@@ -15,6 +13,7 @@ const persistedAppReducer = persistReducer(persistConfig, appSlice);
 
 const rootReducer = combineReducers({
   appSlice: persistedAppReducer,
+  notesSlice: notesSlice,
   // Add other slices or reducers here if needed
 });
 

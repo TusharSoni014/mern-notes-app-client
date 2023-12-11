@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { handleError } from "../utils/handleError";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import axiosClient from "../utils/axiosClient";
 import { updateLoginStatus, updateUser } from "../redux/slices/appSlice";
+import { handleError } from "../utils/handleError";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
